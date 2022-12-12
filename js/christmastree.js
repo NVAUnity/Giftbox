@@ -44,11 +44,11 @@ for (let i = 0; i < localStorage.length; i++) {
         input('gift', localStorage.getItem(key));
     }
     else if (key.includes('holidayCollection')) {
-        holidayCollection[qualityCollection.length] = localStorage.getItem(key);
+        holidayCollection[holidayCollection.length] = localStorage.getItem(key);
         input('holiday', localStorage.getItem(key));
     }
     else if (key.includes('newyearCollection')) {
-        newyearCollection[qualityCollection.length] = localStorage.getItem(key);
+        newyearCollection[newyearCollection.length] = localStorage.getItem(key);
         input('newyear', localStorage.getItem(key));
     }
     else if (key.includes('qualityCollection')) {
