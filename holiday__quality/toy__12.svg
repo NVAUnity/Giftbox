@@ -1,0 +1,30 @@
+<svg width="61" height="100" viewBox="0 0 61 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_27_19)">
+<path d="M28.4578 3.89899H32.6924C33.9818 3.89899 35.0909 4.8117 35.339 6.07702L36.0441 9.67299C36.3707 11.339 35.0953 12.8889 33.3975 12.8889H27.7527C26.0549 12.8889 24.7795 11.339 25.1061 9.67298L25.8112 6.07702C26.0593 4.81169 27.1684 3.89899 28.4578 3.89899Z" fill="#CFB529" stroke="black" stroke-width="1.79798"/>
+<circle cx="30.3832" cy="29" r="19" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="30.3832" cy="67" r="29" fill="white" stroke="black" stroke-width="2"/>
+<circle cx="30.3832" cy="71" r="3" fill="#222222"/>
+<circle cx="30.3832" cy="60" r="3" fill="#222222"/>
+<circle cx="30.3832" cy="82" r="3" fill="#222222"/>
+<rect x="15.8832" y="42.5" width="7" height="29" rx="1.5" fill="#30851B" stroke="black"/>
+<mask id="path-8-inside-1_27_19" fill="white">
+<path d="M15.3832 43H23.3832V57H15.3832V43Z"/>
+</mask>
+<path d="M15.3832 43H23.3832V57H15.3832V43Z" fill="#A90101"/>
+<path d="M22.3832 43V57H24.3832V43H22.3832ZM16.3832 57V43H14.3832V57H16.3832Z" fill="black" mask="url(#path-8-inside-1_27_19)"/>
+<rect x="10.8832" y="37.5" width="39" height="7" rx="2.5" fill="#30851B" stroke="black"/>
+<mask id="path-11-inside-2_27_19" fill="white">
+<path d="M23.3832 37H37.3832V45H23.3832V37Z"/>
+</mask>
+<path d="M23.3832 37H37.3832V45H23.3832V37Z" fill="#A90101"/>
+<path d="M23.3832 38H37.3832V36H23.3832V38ZM37.3832 44H23.3832V46H37.3832V44Z" fill="black" mask="url(#path-11-inside-2_27_19)"/>
+<circle cx="21.8832" cy="25.5" r="2.5" fill="#222222"/>
+<circle cx="38.8832" cy="25.5" r="2.5" fill="#222222"/>
+<circle cx="30.3832" cy="30" r="2.5" fill="#CD651A" stroke="black"/>
+</g>
+<defs>
+<clipPath id="clip0_27_19">
+<rect width="60" height="100" fill="white" transform="translate(0.383179)"/>
+</clipPath>
+</defs>
+</svg>
