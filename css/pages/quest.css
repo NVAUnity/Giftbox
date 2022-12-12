@@ -1,0 +1,67 @@
+
+/* Quest */
+
+body {
+    background-image: url('./../../img/design/pattern/pattern2.jpg');
+    background-size: 600px;
+}
+
+/* Main */
+
+.main__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 50px 0 40px;
+}
+
+.quest {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #135312;
+    transition: all .3s ease;
+}
+.quest.none {
+    background-color: #8A8A8A;
+}
+.quest__title--line {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+.quest__title {
+    font-size: 20px;
+}
+.quest__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    opacity: 1;
+    transition: all .3s ease;
+}
+.quest.none .quest__content {
+    display: none;
+    opacity: 0;
+}
+.quest__text {
+    font-size: 16px;
+    font-weight: 500;
+}
+.button__sm {
+    width: 160px;
+    padding: 14px 22px;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 100%;
+    background-image: url('./../../img/design/button__sm--border.png');
+    background-size: 160px;
+    background-repeat: no-repeat;
+}
+.button__sm.none {
+    display: none;
+}

@@ -1,0 +1,24 @@
+
+/* Header */
+
+.header {
+    background-image: url('./../img/design/header__bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 150px;
+}
+.logo__sm {
+    max-height: 40px;
+}
+.button__close {
+    width: 30px;
+    height: 30px;
+    background-image: url('./../img/design/close__img.svg');
+    background-size: cover;
+}

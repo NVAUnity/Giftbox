@@ -1,0 +1,158 @@
+
+/* Gift */
+
+body {
+    background-image: url('./../../img/design/pattern/pattern1.jpg');
+    background-size: 600px;
+}
+
+/* Main */
+
+.main__content {
+    position: relative;
+    height: 500px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box {
+    z-index: 2;
+    width: 160px;
+}
+.giftbox__animation {
+    z-index: 1;
+    animation: giftboxAnimation 6s linear 0s infinite normal none;
+    transition: all .3s ease;
+}
+@keyframes giftboxAnimation {
+    from {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(270deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.boxcount {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 13px 24px;
+    background: #8D0E0E;
+    border: 4px solid #E4D657;
+    box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: #E4D657;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%;
+    transition: all .3s ease;
+}
+.giftbox__button {
+    opacity: 1;
+    transition: .3s ease;
+}
+
+.zero__box.none {
+    display: none;
+}
+.giftbox__content.none {
+    display: none;
+}
+.giftbox__content.open .giftbox__button {
+    opacity: 0;
+}
+.giftbox__content.open .giftbox__animation {
+    opacity: 0;
+}
+.giftbox__content.open .boxcount {
+    opacity: 0;
+}
+.giftbox__content.open .button__md {
+    display: block;
+}
+
+
+.giftbox__reward {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    width: 200px;
+    padding: 20px 10px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0px 4px 20px 13px rgba(0, 0, 0, 0.32);
+    border-radius: 16px;
+    opacity: 0;
+    transform:  translate(-50%, -50%) scale(.1);
+    transition: transform .8s ease;
+}
+.giftbox__content.open .giftbox__reward {
+    opacity: 1;
+    transform:  translate(-50%, -50%) scale(1);
+}
+.reward__img {
+    width: 110px;
+}
+
+.giftbox__reward.usual__quality {
+    background: #42D635;
+    border: 4px solid #1C8C12;
+}
+.giftbox__reward.usual__quality .reward__quality {
+    color:#1C8C12;
+}
+.giftbox__reward.gift__quality {
+    background: #5C61E7;
+    border: 4px solid #271BAE;
+}
+.giftbox__reward.gift__quality .reward__quality {
+    color: #271BAE;
+}
+.giftbox__reward.holiday__quality {
+    background: #DE72E8;
+    border: 4px solid #BB15CA;
+}
+.giftbox__reward.holiday__quality .reward__quality {
+    color: #BB15CA;
+}
+.giftbox__reward.newyear__quality {
+    background: #F4B350;
+    border: 4px solid #E7750C;
+}
+.giftbox__reward.newyear__quality .reward__quality {
+    color: #E7750C;
+}
+
+.button__md {
+    display: none;
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('./../../img/design/button__md--border.png');
+    background-size: cover;
+    font-size: 20px;
+    width: 232px;
+    padding: 15px 65px;
+    transition: all .3s ease;
+}
+.button__md:active {
+    transform: translateX(-50%) scale(.9);
+}

@@ -1,0 +1,138 @@
+
+/* Christmastree */
+
+body {
+    background-image: url('./../../img/design/pattern/pattern2.jpg');
+    background-size: 500px;
+}
+
+/* Main */
+
+.main__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    position: relative;
+    padding: 50px 0 70px;
+}
+
+.christmastree {
+    height: 320px;
+}
+
+.toy__add {
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+}
+.toy__add:nth-child(1) {
+    top: 33px;
+    left: 165px;
+}
+.toy__add:nth-child(2) {
+    top: 107px;
+    left: 200px;
+}
+.toy__add:nth-child(3) {
+    top: 144px;
+    left: 90px;
+}
+.toy__add:nth-child(4) {
+    top: 164px;
+    left: 136px;
+}
+.toy__add:nth-child(5) {
+    top: 222px;
+    left: 169px;
+}
+.toy__add:nth-child(6) {
+    top: 202px;
+    left: 217px;
+}
+.toy__add:nth-child(7) {
+    top: 216px;
+    left: 266px;
+}
+.toy__add:nth-child(8) {
+    top: 252px;
+    left: 58px;
+}
+.toy__add:nth-child(9) {
+    top: 276px;
+    left: 115px;
+}
+.toy__add:nth-child(10) {
+    top: 282px;
+    left: 179px;
+}
+.toy__add:nth-child(11) {
+    top: 290px;
+    left: 283px;
+}
+.toy__add:nth-child(12) {
+    top: 15px;
+    right: 31px;
+}
+.toy__add--img {
+    height: 40px;
+    width: 40px;
+}
+.toy__add--img.toy {
+    transform: scale(1.4);
+}
+.toy__add--img.first {
+    height: 60px;
+    min-width: 60px;
+    transform: translate(-10px, -30px);
+}
+
+.toy__collection {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    width: 100%;
+    padding: 40px 20px;
+    background-image: url('./../../img/design/christmastree/ct__img.png');
+    background-size: 370px;
+    background-repeat: no-repeat;
+    overflow: auto;
+    height: 204px;
+}
+.toy__collection.none {
+    display: none;
+}
+.toy__collection--content {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.toy__item {
+    margin-bottom: 20px;
+    transition: all .2s ease;
+}
+.toy__item:active {
+    transform: scale(.8);
+}
+.toy__item--img {
+    min-width: 100px;
+    height: 100px;
+}
+
+.toy__collection::-webkit-scrollbar {
+    height: 4px;
+}
+.toy__collection::-webkit-scrollbar-track {
+    background: transparent;
+}
+.toy__collection::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.garland {
+    position: absolute;
+    left: 35px;
+    width: 280px;
+}

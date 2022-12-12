@@ -1,0 +1,65 @@
+
+/* Home */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    background-image: url('./../../img/design/pattern/pattern1.jpg');
+    background-size: 500px;
+}
+
+h1 {
+    font-family: 'Faricka';
+}
+h2 {
+    font-family: 'Playfair Display';
+}
+
+/* Header */
+
+.header {
+    background-image: url('./../../img/design/home__header/header__bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.header__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 95px 0 150px;
+}
+.header__line {
+    padding: 115px 0 25px;
+}
+.header__content .top {
+    display: flex;
+    align-items: center;
+    column-gap: 23px;
+}
+.header__content .top h2 {
+    font-size: 50px;
+}
+.header__content .text h1 {
+    font-size: 74px;
+    line-height: 100%;
+}
+
+/* Main */
+
+.main__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    padding: 140px 0;
+}
+.button__bg {
+    font-size: 36px;
+    line-height: 100%;
+    padding: 21px 0;
+    width: 270px;
+    border-radius: 2px;
+    background-image: url('./../../img/design/button__bg--border.png');
+    background-size: cover;
+}
