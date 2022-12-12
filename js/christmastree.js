@@ -24,10 +24,10 @@ const toyAdd = $(doc, '.toy__add', true);
 const toyCollection = $(doc, '.toy__collection');
 const toyCollectionContent = $(doc, '.toy__collection--content');
 let toyItem;
-const usualCollection = [];
-const giftCollection = [];
-const holidayCollection = [];
-const newyearCollection = [];
+const usualCollection = [''];
+const giftCollection = [''];
+const holidayCollection = [''];
+const newyearCollection = [''];
 const qualityCollection = [];
 let indexToyAdd;
 
