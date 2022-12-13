@@ -185,10 +185,10 @@ for (let i = 0; i < localStorage.length; i++) {
         giftCollection[giftCollection.length] = localStorage.getItem(key);
     }
     else if (key.includes('holidayCollection')) {
-        holidayCollection[qualityCollection.length] = localStorage.getItem(key);
+        holidayCollection[holidayCollection.length] = localStorage.getItem(key);
     }
     else if (key.includes('newyearCollection')) {
-        newyearCollection[qualityCollection.length] = localStorage.getItem(key);
+        newyearCollection[newyearCollection.length] = localStorage.getItem(key);
     }
     else if (key.includes('qualityCollection')) {
         qualityCollection[qualityCollection.length] = localStorage.getItem(key);
