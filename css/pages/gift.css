@@ -139,6 +139,13 @@ body {
 .giftbox__reward.newyear__quality .reward__quality {
     color: #E7750C;
 }
+.giftbox__reward.fabulous__quality {
+    background: #49E2AB;
+    border: 4px solid #2CB282;
+}
+.giftbox__reward.fabulous__quality .reward__quality {
+    color: #2CB282;
+}
 
 .button__md {
     display: none;
