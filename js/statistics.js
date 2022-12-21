@@ -20,10 +20,7 @@ let boxOpenCount = 0;
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
-    if (key.includes('quest')) {
-        boxOpenCount++;
-    }
-    else if (key.includes('usualCollection')) {
+    if (key.includes('usualCollection')) {
         usualCollectionCount++;
     }
     else if (key.includes('giftCollection')) {
@@ -42,7 +39,6 @@ for (let i = 0; i < localStorage.length; i++) {
 
 // <---------- Основной код ---------->
 
-localStorage.setItem('boxOpenCount', boxOpenCount);
 statPoint[0].innerHTML = `${newyearCollectionCount} / 5`;
 if (newyearCollectionCount == 5) statItem[0].classList.add('active');
 statPoint[1].innerHTML = `${holidayCollectionCount} / 20`;
