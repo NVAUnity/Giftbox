@@ -28,6 +28,7 @@ const holidayCollection = [''];
 const newyearCollection = [''];
 const giftBoxReward = $(doc, '.giftbox__reward');
 let boxOpenCount = 0;
+let fabulous = 0;
 
 // <---------- Основные функции ---------->
 
@@ -46,7 +47,8 @@ function boxReset() {
         zeroBox.classList.add('none');
         giftBoxContent.classList.remove('none');
         $(doc, '.boxcount__text').innerHTML = giftBoxCount;
-        randomGiftBox();
+        if (fabulous != 0) giftBoxImg.src = `./../img/giftbox/fabulous__box.svg`;
+        else randomGiftBox();
     }
     else {
         zeroBox.classList.remove('none');
@@ -63,114 +65,124 @@ function boxReset() {
 function boxOpen() {
     boxOpenCount++;
     localStorage.setItem('boxOpenCount', boxOpenCount);
-    let point = 2;
-    if (qualityCollection.length != 5) point = randomInteger(0, 7);
-    if (point == 2 || point == 6) {
-        let candy = randomInteger(1, 6);
-        giftBoxReward.classList.add('newyear__quality');
-        $(doc, '.reward__quality').innerHTML = 'новогоднее';
-        $(doc, '.reward__name').innerHTML = 'сладость';
-        $(doc, '.reward__img').src = `./../img/newyear__gift/candy/candy__${candy}.svg`;
+    if (fabulous != 0) {
+        giftBoxReward.classList.add('fabulous__quality');
+        $(doc, '.reward__quality').innerHTML = 'сказочное';
+        $(doc, '.reward__name').innerHTML = 'подарок';
+        $(doc, '.reward__img').src = `./../img/newyear__gift/present/present.svg`;
+        fabulous--;
+        localStorage.removeItem('fabulous');
     }
     else {
-        let quality;
-        while (true) {
-            quality = randomInteger(0, 3);
-            let k = 1;
-            for (let i = 1; i < qualityCollection.length; i++) {
-                if (quality == qualityCollection[i]) break;
-                else k++;
-            }
-            if (k == qualityCollection.length) break;
+        let point = 2;
+        if (qualityCollection.length != 5) point = randomInteger(0, 7);
+        if (point == 2 || point == 6) {
+            let candy = randomInteger(1, 6);
+            giftBoxReward.classList.add('newyear__quality');
+            $(doc, '.reward__quality').innerHTML = 'новогоднее';
+            $(doc, '.reward__name').innerHTML = 'сладость';
+            $(doc, '.reward__img').src = `./../img/newyear__gift/candy/candy__${candy}.svg`;
         }
-        let nameQuality = toyQuality[quality];
-        let nameQualityStr, nameToy, toy;
-        switch(quality) {
-            case 0: {
-                while (true) {
-                    toy = randomInteger(1, toyNameUsual.length - 1);
-                    let k = 1;
-                    for (let i = 1; i < usualCollection.length; i++) {
-                        if (toy == usualCollection[i]) break;
-                        else k++;
-                    }
-                    if (k == usualCollection.length) break;
+        else {
+            let quality;
+            while (true) {
+                quality = randomInteger(0, 3);
+                let k = 1;
+                for (let i = 1; i < qualityCollection.length; i++) {
+                    if (quality == qualityCollection[i]) break;
+                    else k++;
                 }
-                usualCollection[usualCollection.length] = toy;
-                localStorage.setItem(`usualCollection${usualCollection.length}`, toy); // сохранение данных об обычном качестве
-                if (usualCollection.length == toyNameUsual.length) {
-                    qualityCollection[qualityCollection.length] = quality;
-                    localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
-                }
-                nameToy = toyNameUsual[toy];
-                nameQualityStr = 'usual__quality';
-                break;
+                if (k == qualityCollection.length) break;
             }
-            case 1: {
-                while (true) {
-                    toy = randomInteger(1, toyNameGift.length - 1);
-                    let k = 1;
-                    for (let i = 1; i < giftCollection.length; i++) {
-                        if (toy == giftCollection[i]) break;
-                        else k++;
+            let nameQuality = toyQuality[quality];
+            let nameQualityStr, nameToy, toy;
+            switch(quality) {
+                case 0: {
+                    while (true) {
+                        toy = randomInteger(1, toyNameUsual.length - 1);
+                        let k = 1;
+                        for (let i = 1; i < usualCollection.length; i++) {
+                            if (toy == usualCollection[i]) break;
+                            else k++;
+                        }
+                        if (k == usualCollection.length) break;
                     }
-                    if (k == giftCollection.length) break;
-                }
-                giftCollection[giftCollection.length] = toy;
-                localStorage.setItem(`giftCollection${giftCollection.length}`, toy); // сохранение данных о подарочном качестве
-                if (giftCollection.length == toyNameGift.length) {
-                    qualityCollection[qualityCollection.length] = quality;
-                    localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
-                }
-                nameToy = toyNameGift[toy];
-                nameQualityStr = 'gift__quality';
-                break;
-            }
-            case 2: {
-                while (true) {
-                    toy = randomInteger(1, toyNameHoliday.length - 1);
-                    let k = 1;
-                    for (let i = 1; i < holidayCollection.length; i++) {
-                        if (toy == holidayCollection[i]) break;
-                        else k++;
+                    usualCollection[usualCollection.length] = toy;
+                    localStorage.setItem(`usualCollection${usualCollection.length}`, toy); // сохранение данных об обычном качестве
+                    if (usualCollection.length == toyNameUsual.length) {
+                        qualityCollection[qualityCollection.length] = quality;
+                        localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
                     }
-                    if (k == holidayCollection.length) break;
+                    nameToy = toyNameUsual[toy];
+                    nameQualityStr = 'usual__quality';
+                    break;
                 }
-                holidayCollection[holidayCollection.length] = toy;
-                localStorage.setItem(`holidayCollection${holidayCollection.length}`, toy); // сохранение данных о праздничном качестве
-                if (holidayCollection.length == toyNameHoliday.length) {
-                    qualityCollection[qualityCollection.length] = quality;
-                    localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
-                }
-                nameToy = toyNameHoliday[toy];
-                nameQualityStr = 'holiday__quality';
-                break;
-            }
-            case 3: {
-                while (true) {
-                    toy = randomInteger(1, toyNameNewyear.length - 1);
-                    let k = 1;
-                    for (let i = 1; i < newyearCollection.length; i++) {
-                        if (toy == newyearCollection[i]) break;
-                        else k++;
+                case 1: {
+                    while (true) {
+                        toy = randomInteger(1, toyNameGift.length - 1);
+                        let k = 1;
+                        for (let i = 1; i < giftCollection.length; i++) {
+                            if (toy == giftCollection[i]) break;
+                            else k++;
+                        }
+                        if (k == giftCollection.length) break;
                     }
-                    if (k == newyearCollection.length) break;
+                    giftCollection[giftCollection.length] = toy;
+                    localStorage.setItem(`giftCollection${giftCollection.length}`, toy); // сохранение данных о подарочном качестве
+                    if (giftCollection.length == toyNameGift.length) {
+                        qualityCollection[qualityCollection.length] = quality;
+                        localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
+                    }
+                    nameToy = toyNameGift[toy];
+                    nameQualityStr = 'gift__quality';
+                    break;
                 }
-                newyearCollection[newyearCollection.length] = toy;
-                localStorage.setItem(`newyearCollection${newyearCollection.length}`, toy); // сохранение данных о новогоднем качестве
-                if (newyearCollection.length == toyNameNewyear.length) {
-                    qualityCollection[qualityCollection.length] = quality;
-                    localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
+                case 2: {
+                    while (true) {
+                        toy = randomInteger(1, toyNameHoliday.length - 1);
+                        let k = 1;
+                        for (let i = 1; i < holidayCollection.length; i++) {
+                            if (toy == holidayCollection[i]) break;
+                            else k++;
+                        }
+                        if (k == holidayCollection.length) break;
+                    }
+                    holidayCollection[holidayCollection.length] = toy;
+                    localStorage.setItem(`holidayCollection${holidayCollection.length}`, toy); // сохранение данных о праздничном качестве
+                    if (holidayCollection.length == toyNameHoliday.length) {
+                        qualityCollection[qualityCollection.length] = quality;
+                        localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
+                    }
+                    nameToy = toyNameHoliday[toy];
+                    nameQualityStr = 'holiday__quality';
+                    break;
                 }
-                nameToy = toyNameNewyear[toy];
-                nameQualityStr = 'newyear__quality';
-                break;
+                case 3: {
+                    while (true) {
+                        toy = randomInteger(1, toyNameNewyear.length - 1);
+                        let k = 1;
+                        for (let i = 1; i < newyearCollection.length; i++) {
+                            if (toy == newyearCollection[i]) break;
+                            else k++;
+                        }
+                        if (k == newyearCollection.length) break;
+                    }
+                    newyearCollection[newyearCollection.length] = toy;
+                    localStorage.setItem(`newyearCollection${newyearCollection.length}`, toy); // сохранение данных о новогоднем качестве
+                    if (newyearCollection.length == toyNameNewyear.length) {
+                        qualityCollection[qualityCollection.length] = quality;
+                        localStorage.setItem(`qualityCollection${qualityCollection.length}`, quality); // сохранение данных о качестве
+                    }
+                    nameToy = toyNameNewyear[toy];
+                    nameQualityStr = 'newyear__quality';
+                    break;
+                }
             }
+            giftBoxReward.classList.add(nameQualityStr);
+            $(doc, '.reward__quality').innerHTML = nameQuality;
+            $(doc, '.reward__name').innerHTML = nameToy;
+            $(doc, '.reward__img').src = `./../img/christmas__toy/${nameQualityStr}/toy__${toy}.svg`;
         }
-        giftBoxReward.classList.add(nameQualityStr);
-        $(doc, '.reward__quality').innerHTML = nameQuality;
-        $(doc, '.reward__name').innerHTML = nameToy;
-        $(doc, '.reward__img').src = `./../img/christmas__toy/${nameQualityStr}/toy__${toy}.svg`;
     }
 }
 
@@ -198,6 +210,9 @@ for (let i = 0; i < localStorage.length; i++) {
     }
     else if (key.includes('boxOpenCount')) {
         boxOpenCount = localStorage.getItem(key);
+    }
+    else if (key.includes('fabulous')) {
+        fabulous = localStorage.getItem(key);
     }
 }
 
