@@ -71,7 +71,7 @@ function boxOpen() {
         $(doc, '.reward__name').innerHTML = 'подарок';
         $(doc, '.reward__img').src = `./../img/newyear__gift/present/present.svg`;
         fabulous--;
-        localStorage.removeItem('fabulous');
+        localStorage.setItem('fabulous', fabulous);
     }
     else {
         let point = 2;
