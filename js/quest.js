@@ -22,6 +22,10 @@ for (let i = 0; i < localStorage.length; i++) {
     else if (key.includes('giftBoxCount')) {
         giftBoxCount = localStorage.getItem(key);
     }
+    else if (key.includes('fabulous')) {
+        $(quest[quest.length - 1], '.button__sm').classList.add('none');
+        $(quest[quest.length - 1], '.done').innerHTML = '(Выполнено)';
+    }
 }
 
 // <---------- Основной код ---------->
