@@ -41,7 +41,9 @@ buttonSm.forEach(function(item, index) {
         this.classList.add('none');
         let questParent = this.parentNode.parentNode;
         $(questParent, '.done').innerHTML = '(Выполнено)';
-        let key = `quest${index}`;
+        let key;
+        if (index == quest.length - 1) key = `fabulous`;
+        else key = `quest${index}`;
         localStorage.setItem(key, 1);
         giftBoxCount++;
         localStorage.setItem('giftBoxCount', giftBoxCount);
