@@ -27,6 +27,7 @@ const giftCollection = [''];
 const holidayCollection = [''];
 const newyearCollection = [''];
 const giftBoxReward = $(doc, '.giftbox__reward');
+let boxOpenCount = 0;
 
 // <---------- Основные функции ---------->
 
@@ -60,6 +61,8 @@ function boxReset() {
 
 
 function boxOpen() {
+    boxOpenCount++;
+    localStorage.setItem('boxOpenCount', boxOpenCount);
     let point = 2;
     if (qualityCollection.length != 5) point = randomInteger(0, 7);
     if (point == 2 || point == 6) {
@@ -192,6 +195,9 @@ for (let i = 0; i < localStorage.length; i++) {
     }
     else if (key.includes('qualityCollection')) {
         qualityCollection[qualityCollection.length] = localStorage.getItem(key);
+    }
+    else if (key.includes('boxOpenCount')) {
+        boxOpenCount = localStorage.getItem(key);
     }
 }
 
