@@ -6,6 +6,8 @@ export function $(a, b, c) {
     else return a.querySelector(b);
 }
 
-// <---------- Вспомогательные переменные ---------->
-
-// <---------- Экспор в другие файлы JS ---------->
+export function load() {
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+}
