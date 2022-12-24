@@ -1,7 +1,7 @@
 
 // <---------- Импорт из других файлов JS ---------->
 
-import {$} from './main.js';
+import {$, load} from './main.js';
 
 // <---------- Основные функции ---------->
 
@@ -24,14 +24,16 @@ const toyAdd = $(doc, '.toy__add', true);
 const toyCollection = $(doc, '.toy__collection');
 const toyCollectionContent = $(doc, '.toy__collection--content');
 let toyItem;
-const usualCollection = [''];
-const giftCollection = [''];
-const holidayCollection = [''];
-const newyearCollection = [''];
+const usualCollection = [];
+const giftCollection = [];
+const holidayCollection = [];
+const newyearCollection = [];
 const qualityCollection = [];
 let indexToyAdd;
 
 // <---------- Загрузка объектов ---------->
+
+load();
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
@@ -54,6 +56,20 @@ for (let i = 0; i < localStorage.length; i++) {
     else if (key.includes('qualityCollection')) {
         qualityCollection[qualityCollection.length] = localStorage.getItem(key);
     }
+    else if (key.includes('toyAdd')) {
+        if (key.slice(6) == toyAdd.length - 1) $(doc, '.garland').src = localStorage.getItem(key);
+        else {
+            $(toyAdd[key.slice(6)], '.toy__add--img').src = localStorage.getItem(key);
+            if (key.slice(6) == 0) $(toyAdd[key.slice(6)], '.toy__add--img').classList.add('first');
+            else  $(toyAdd[key.slice(6)], '.toy__add--img').classList.add('toy');
+        }
+    }
+    else if (key.includes('delete')) {
+        $(toyAdd[key.slice(6)], '.toy__add--img').src = './../img/design/christmastree/toy__add.png';
+        if (key.slice(6) == 0) $(toyAdd[key.slice(6)], '.toy__add--img').classList.remove('first');
+        else if (key.slice(6) == toyAdd.length - 1) $(doc, '.garland').src = '';
+        else $(toyAdd[key.slice(6)], '.toy__add--img').classList.remove('toy');
+    }
 }
 
 // <---------- Основной код ---------->
@@ -62,6 +78,14 @@ toyAdd.forEach(function(item, index) {
     item.addEventListener('click', function() {
         toyCollection.classList.remove('none');
         indexToyAdd = index;
+        this.addEventListener('click', function() {
+            if (indexToyAdd == toyAdd.length - 1) $(doc, '.garland').src = '';
+            else if (indexToyAdd == 0) $(toyAdd[indexToyAdd], '.toy__add--img').classList.remove('first');
+            else $(toyAdd[indexToyAdd], '.toy__add--img').classList.remove('toy');
+            $(this, '.toy__add--img').src = './../img/design/christmastree/toy__add.png';
+            localStorage.setItem(`delete${indexToyAdd}`, 1);
+            localStorage.removeItem(`toyAdd${indexToyAdd}`);
+        })
     })
 })
 
@@ -78,5 +102,7 @@ toyItem.forEach(function(item) {
             $(toyAdd[indexToyAdd], '.toy__add--img').src = $(this, '.toy__item--img').src;
             $(toyAdd[indexToyAdd], '.toy__add--img').classList.add('toy');
         }
+        localStorage.setItem(`toyAdd${indexToyAdd}`, $(this, '.toy__item--img').src);
+        localStorage.removeItem(`delete${indexToyAdd}`);
     })
 })
