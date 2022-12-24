@@ -1,7 +1,7 @@
 
 // <---------- Импорт из других файлов JS ---------->
 
-import {$} from './main.js';
+import {$, load} from './main.js';
 
 // <---------- Основные функции ---------->
 
@@ -17,6 +17,8 @@ const statPoint = $(doc, '.stat__point', true);
 let boxOpenCount = 0;
 
 // <---------- Загрузка объектов ---------->
+
+load();
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
