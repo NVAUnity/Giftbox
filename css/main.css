@@ -38,3 +38,78 @@ body {
 .button__close:active {
     transform: rotate(180deg);
 }
+
+/* Preloader */
+
+body.loaded .preloader {
+    display: none;
+}
+
+.preloader {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #116910;
+}
+.preloader__content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 263px;
+}
+.preloader__star {
+    transform: scale(0);
+    animation: starAnimation 1.5s linear .3s infinite normal none;
+}
+@keyframes starAnimation {
+    from {
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(.25);
+    }
+    50% {
+        transform: scale(.5);
+    }
+    75% {
+        transform: scale(.75);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.preloader__star:nth-child(2) {
+    position: absolute;
+    top: -25px;
+    left: 70px;
+    animation-delay: .4s;
+}
+.preloader__star:nth-child(3) {
+    position: absolute;
+    top: 50px;
+    left: 35px;
+    animation-delay: .9s;
+}
+.preloader__star:nth-child(4) {
+    position: absolute;
+    top: 75px;
+    left: 105px;
+    animation-delay: 2s;
+}
+.preloader__star:nth-child(5) {
+    position: absolute;
+    top: 135px;
+    left: 5px;
+    animation-delay: 1.2s;
+}
+.preloader__star:nth-child(6) {
+    position: absolute;
+    top: 155px;
+    left: 95px;
+    animation-delay: .7s;
+}
