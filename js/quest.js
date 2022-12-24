@@ -1,7 +1,7 @@
 
 // <---------- Импорт из других файлов JS ---------->
 
-import {$} from './main.js';
+import {$, load} from './main.js';
 
 // <---------- Основные функции ---------->
 
@@ -12,6 +12,8 @@ const quest = $(doc, '.quest', true);
 let giftBoxCount = 0; // Количество коробок
 
 // <---------- Загрузка объектов ---------->
+
+load();
 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
