@@ -58,6 +58,7 @@ for (let i = 0; i < toyItem.length; i++) {
     for (let j = 0; j < toyAdd.length; j++) {
         if ($(toyItem[i], '.toy__item--img').src == $(toyAdd[j], '.toy__add--img').src) toyItem[i].remove();
     }
+    if ($(toyItem[i], '.toy__item--img').src == $(doc, '.garland').src) toyItem[i].remove();
 }
 
 // <---------- Основной код ---------->
